@@ -9,7 +9,6 @@ export const personal = {
   taglines: [
     "Building intelligent systems from silicon to software",
     "Hardware security · AI pipelines · Full-stack dev",
-    "RAG · RTL · React — yes, all three",
     "EE student · IIT Jodhpur · Class of 2028",
   ],
   about: `I'm a third-year Electrical Engineering student at IIT Jodhpur who enjoys building software and figuring out how things work under the hood.
