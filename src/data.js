@@ -23,7 +23,7 @@ Outside of academics and coding, I mentor juniors, contribute to student communi
   github: "https://github.com/KeshavSwami04",
   linkedin: "https://www.linkedin.com/in/keshav-swami-42593b319/",
   phone: "+91 93529 02531",
-  resumeUrl: "#",
+  resumeUrl: "https://drive.google.com/file/d/1HZc4aUIqACYUlB3Gb7SYYMcH4IzrIufZ/view?usp=sharing",
 };
 
 export const education = [
