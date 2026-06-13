@@ -24,6 +24,11 @@ export default function Hero() {
   return (
     <section style={{position:"relative",minHeight:"100vh",display:"flex",alignItems:"center",overflow:"hidden"}}>
 
+      <style>{`
+        @keyframes twinkle { from{opacity:0.03} to{opacity:0.45} }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+      `}</style>
+
       {/* Static stars */}
       <div style={{position:"absolute",inset:0,overflow:"hidden",zIndex:0}}>
         {Array.from({length:70}).map((_,i)=>(
@@ -49,7 +54,7 @@ export default function Hero() {
 
       {/* TEXT — hard left, asymmetric */}
       <div className="container" style={{position:"relative",zIndex:2,paddingTop:88}}>
-        <div style={{maxWidth:560}}>
+        <div style={{maxWidth:580}}>
 
           <div style={{
             fontFamily:"var(--font-mono)",fontSize:"12px",
@@ -59,7 +64,6 @@ export default function Hero() {
             // IIT Jodhpur &nbsp;·&nbsp; Electrical Engineering &nbsp;·&nbsp; '28
           </div>
 
-          {/* Name — no gradient, pure white weight */}
           <h1 style={{
             fontFamily:"var(--font-display)",fontWeight:700,
             fontSize:"clamp(58px,8vw,92px)",
@@ -70,7 +74,6 @@ export default function Hero() {
             <span style={{color:"var(--ice)"}}>Swami</span>
           </h1>
 
-          {/* Role strip */}
           <div style={{
             display:"flex",alignItems:"center",gap:16,
             marginBottom:20,
@@ -84,7 +87,6 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Typed tagline */}
           <div style={{
             fontFamily:"var(--font-mono)",fontSize:"15px",
             color:"var(--white-30)",marginBottom:44,
@@ -98,8 +100,8 @@ export default function Hero() {
             }}/>
           </div>
 
-          {/* Buttons */}
-          <div style={{display:"flex",gap:14,flexWrap:"wrap",marginBottom:52}}>
+          {/* Buttons only — no social links here */}
+          <div style={{display:"flex",gap:14,flexWrap:"wrap"}}>
             <a href="#projects">
               <button style={{
                 padding:"14px 36px",
@@ -131,36 +133,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Socials */}
-          <div style={{display:"flex",gap:28}}>
-            {[
-              {label:"GitHub",   url:personal.github},
-              {label:"LinkedIn", url:personal.linkedin},
-              {label:"Email",    url:`https://mail.google.com/mail/?view=cm&to=${personal.email}`},
-            ].map(l=>(
-              <a key={l.label} href={l.url} target="_blank" rel="noreferrer"
-                style={{
-                  fontFamily:"var(--font-mono)",fontSize:"13px",
-                  color:"var(--white-30)",letterSpacing:"2px",textTransform:"uppercase",
-                  paddingBottom:3,borderBottom:"1px solid rgba(255,255,255,0.08)",
-                  transition:"color 0.2s,border-color 0.2s",
-                }}
-                onMouseEnter={e=>{e.target.style.color="var(--white-90)";e.target.style.borderColor="rgba(255,255,255,0.35)";}}
-                onMouseLeave={e=>{e.target.style.color="var(--white-30)";e.target.style.borderColor="rgba(255,255,255,0.08)";}}>
-                {l.label}
-              </a>
-            ))}
-          </div>
         </div>
-      </div>
-
-      {/* Scroll cue */}
-      <div style={{
-        position:"absolute",bottom:28,left:"50%",transform:"translateX(-50%)",
-        zIndex:2,display:"flex",flexDirection:"column",alignItems:"center",gap:10,opacity:0.25,
-      }}>
-        <div style={{fontFamily:"var(--font-mono)",fontSize:"10px",letterSpacing:"3px",textTransform:"uppercase",color:"var(--white-60)"}}>Scroll</div>
-        <div style={{width:1,height:40,background:"linear-gradient(to bottom,var(--ice),transparent)",animation:"scrollBar 2.4s infinite"}}/>
       </div>
     </section>
   );
