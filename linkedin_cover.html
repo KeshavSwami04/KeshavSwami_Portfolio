@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkedIn Cover — Keshav Swami</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 1200px;
+      height: 627px;
+      overflow: hidden;
+      background: #060606;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: 1200px;
+      height: 627px;
+      background: #060606;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── AURORA BLOBS ── */
+    .aurora-tl {
+      position: absolute;
+      top: -120px;
+      left: -80px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.18) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .aurora-br {
+      position: absolute;
+      bottom: -100px;
+      right: 60px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(109, 40, 217, 0.12) 0%, transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+    }
+
+    .aurora-mid {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(211, 166, 37, 0.06) 0%, transparent 70%);
+      filter: blur(70px);
+      pointer-events: none;
+    }
+
+    /* ── NOISE TEXTURE ── */
+    .noise {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* ── LEFT DIVIDER LINE ── */
+    .divider-line {
+      position: absolute;
+      top: 80px;
+      bottom: 80px;
+      left: 640px;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(211, 166, 37, 0.25) 30%, rgba(211, 166, 37, 0.25) 70%, transparent);
+    }
+
+    /* ── CONTENT LAYOUT ── */
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+    }
+
+    /* ── LEFT PANEL ── */
+    .left {
+      width: 620px;
+      padding: 72px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #d3a625;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 20px;
+    }
+
+    .name {
+      font-family: 'Cinzel', serif;
+      font-size: 66px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .name span {
+      color: #f4eccf;
+    }
+
+    .subtitle {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(244, 236, 207, 0.65);
+      margin-bottom: 30px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── GOLD RULE ── */
+    .rule {
+      width: 44px;
+      height: 1.5px;
+      background: #d3a625;
+      opacity: 0.7;
+      margin-bottom: 28px;
+    }
+
+    /* ── TAGS ── */
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: rgba(211, 166, 37, 0.9);
+      border: 1px solid rgba(211, 166, 37, 0.28);
+      border-radius: 20px;
+      padding: 5px 14px;
+      letter-spacing: 0.5px;
+      background: rgba(211, 166, 37, 0.04);
+    }
+
+    /* ── QUOTE ── */
+    .quote {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-style: italic;
+      color: rgba(244, 236, 207, 0.38);
+      line-height: 1.6;
+      letter-spacing: 0.2px;
+      border-left: 2px solid rgba(211, 166, 37, 0.25);
+      padding-left: 14px;
+    }
+
+    /* ── URL BAR ── */
+    .url-bar {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .url-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d3a625;
+      opacity: 0.8;
+    }
+
+    .url-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: rgba(211, 166, 37, 0.6);
+      letter-spacing: 1px;
+    }
+
+    /* ── RIGHT PANEL ── */
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 56px;
+      gap: 40px;
+    }
+
+    /* ── CENTRAL LOGO SVG ── */
+    .logo-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-glow {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(211, 166, 37, 0.12) 0%, transparent 70%);
+      filter: blur(30px);
+    }
+
+    .crest-svg {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      border: 1px solid rgba(211, 166, 37, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(12, 12, 12, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .stat {
+      flex: 1;
+      padding: 18px 12px;
+      text-align: center;
+      border-right: 1px solid rgba(211, 166, 37, 0.08);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-value {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #d3a625;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5px;
+      color: rgba(244, 236, 207, 0.4);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── BOTTOM BORDER ── */
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(211, 166, 37, 0.08);
+      pointer-events: none;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Atmospheric glows -->
+    <div class="aurora-tl"></div>
+    <div class="aurora-br"></div>
+    <div class="aurora-mid"></div>
+    <div class="noise"></div>
+    <div class="divider-line"></div>
+
+    <div class="content">
+      <!-- LEFT PANEL -->
+      <div class="left">
+        <div class="eyebrow">// portfolio · iit jodhpur · 2028</div>
+        <div class="name">Keshav<br><span>Swami</span></div>
+        <div class="subtitle">Electrical Engineering · Hardware Security & AI Systems</div>
+        <div class="rule"></div>
+        <div class="tags">
+          <span class="tag">Hardware Security</span>
+          <span class="tag">AI Systems</span>
+          <span class="tag">Full-Stack Dev</span>
+          <span class="tag">VLSI</span>
+        </div>
+        <div class="quote">
+          "It is our choices that show what we truly are,<br>
+          far more than our abilities." — Albus Dumbledore
+        </div>
+        <div class="url-bar">
+          <div class="url-dot"></div>
+          <span class="url-text">keshavswami.vercel.app</span>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right">
+        <!-- Glasses + Lightning Logo -->
+        <div class="logo-wrap">
+          <div class="logo-glow"></div>
+          <svg class="crest-svg" viewBox="0 0 160 160" width="160" height="160">
+            <!-- Outer ring, dashed -->
+            <circle cx="80" cy="80" r="72" stroke="rgba(211,166,37,0.15)" stroke-width="1" fill="none" stroke-dasharray="5 4" />
+            <!-- Inner ring -->
+            <circle cx="80" cy="80" r="60" stroke="rgba(211,166,37,0.08)" stroke-width="1" fill="none" />
+
+            <!-- Left lens -->
+            <circle cx="54" cy="90" r="20" stroke="#d3a625" stroke-width="2.5" fill="none" />
+            <!-- Right lens -->
+            <circle cx="106" cy="90" r="20" stroke="#d3a625" stroke-width="2.5" fill="none" />
+            <!-- Bridge -->
+            <path d="M 74 86 Q 80 82 86 86" stroke="#d3a625" stroke-width="2.5" fill="none" />
+
+            <!-- Lightning bolt -->
+            <path d="M 83 28 L 96 46 L 87 46 L 98 68 L 78 49 L 87 49 Z" fill="#d3a625" />
+
+            <!-- Subtle tick marks on ring -->
+            <line x1="80" y1="8" x2="80" y2="14" stroke="rgba(211,166,37,0.35)" stroke-width="1.5"/>
+            <line x1="80" y1="146" x2="80" y2="152" stroke="rgba(211,166,37,0.35)" stroke-width="1.5"/>
+            <line x1="8" y1="80" x2="14" y2="80" stroke="rgba(211,166,37,0.35)" stroke-width="1.5"/>
+            <line x1="146" y1="80" x2="152" y2="80" stroke="rgba(211,166,37,0.35)" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-value">6+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">7.57</div>
+            <div class="stat-label">CGPA</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">AIR</div>
+            <div class="stat-label">5572 JEE Adv.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">95.6%</div>
+            <div class="stat-label">Class XII</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

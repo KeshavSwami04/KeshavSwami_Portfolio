@@ -23,7 +23,7 @@ Outside of academics and coding, I mentor juniors, contribute to student communi
   github: "https://github.com/KeshavSwami04",
   linkedin: "https://www.linkedin.com/in/keshav-swami-42593b319/",
   phone: "+91 93529 02531",
-  resumeUrl: "https://drive.google.com/file/d/176ESTdVD8XcBfbLWAL9v5vmpBgs9-X0T/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1ixRqhqhc2F9bCU9SwUag5VYAlEbxbKRm/view?usp=sharing",
 };
 
 export const education = [
@@ -34,7 +34,7 @@ export const education = [
     cgpa: "7.57 / 10",
     highlights: [
       "JEE Advanced 2024: AIR 5572 (General Category)",
-      "CBSE Class XII: 96.6%",
+      "CBSE Class XII: 95.6%",
       "DSA · ML · Digital Design · Signals & Systems · Linear Algebra",
     ],
   },
@@ -44,7 +44,7 @@ export const stats = [
   { value: "6+",    label: "Projects Shipped" },
   { value: "7.57",  label: "CGPA / 10" },
   { value: "AIR 5572", label: "JEE Advanced" },
-  { value: "96.6%", label: "Class XII" },
+  { value: "95.6%", label: "Class XII" },
 ];
 
 export const skills = [

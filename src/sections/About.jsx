@@ -7,7 +7,7 @@ const statMeta = [
   { target: "6",    suffix: "+",  label: "Projects Shipped" },
   { target: "7.57", suffix: "",   label: "CGPA / 10" },
   { target: "5572", suffix: "",   label: "JEE Adv. AIR" },
-  { target: "96.6", suffix: "%",  label: "Class XII" },
+  { target: "95.6", suffix: "%",  label: "Class XII" },
 ];
 
 export default function About() {
