@@ -76,7 +76,7 @@ export default function Skills() {
           alignItems: "start",
         }}>
           {/* Left Column: Interactive Diagnostics Console Terminal (centered on viewport scroll) */}
-          <div style={{ width: "100%", position: "sticky", top: "calc(50vh - 190px)" }}>
+          <div style={{ width: "100%", position: "sticky", top: "calc(50vh - 120px)" }}>
             <div className="glass-card" style={{
               padding: "28px 24px",
               borderLeft: "3px solid var(--mint)",
