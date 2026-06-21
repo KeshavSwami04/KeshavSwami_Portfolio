@@ -1,136 +1,200 @@
 import { useState, useEffect } from "react";
-import HeroCanvas from "../components/HeroCanvas";
 import { personal } from "../data";
+import Grimoire3D from "../components/Grimoire3D";
 
 export default function Hero() {
-  const [idx,   setIdx]      = useState(0);
-  const [shown, setShown]    = useState("");
-  const [del,   setDel]      = useState(false);
-  const [ci,    setCi]       = useState(0);
+  const [idx, setIdx] = useState(0);
+  const [shown, setShown] = useState("");
+  const [del, setDel] = useState(false);
+  const [ci, setCi] = useState(0);
 
-  useEffect(()=>{
-    const phrase=personal.taglines[idx];
+  // Typewriter effect
+  useEffect(() => {
+    const phrase = personal.taglines[idx];
     let t;
-    if(!del){
-      if(ci<phrase.length){ t=setTimeout(()=>{setShown(phrase.slice(0,ci+1));setCi(c=>c+1);},40); }
-      else { t=setTimeout(()=>setDel(true),2600); }
+    if (!del) {
+      if (ci < phrase.length) { 
+        t = setTimeout(() => { setShown(phrase.slice(0, ci + 1)); setCi(c => c + 1); }, 35); 
+      } else { 
+        t = setTimeout(() => setDel(true), 2500); 
+      }
     } else {
-      if(ci>0){ t=setTimeout(()=>{setShown(phrase.slice(0,ci-1));setCi(c=>c-1);},16); }
-      else { setDel(false); setIdx(i=>(i+1)%personal.taglines.length); }
+      if (ci > 0) { 
+        t = setTimeout(() => { setShown(phrase.slice(0, ci - 1)); setCi(c => c - 1); }, 14); 
+      } else { 
+        setDel(false); 
+        setIdx(i => (i + 1) % personal.taglines.length); 
+      }
     }
-    return()=>clearTimeout(t);
-  },[ci,del,idx]);
+    return () => clearTimeout(t);
+  }, [ci, del, idx]);
 
   return (
-    <section style={{position:"relative",minHeight:"100vh",display:"flex",alignItems:"center",overflow:"hidden"}}>
+    <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
 
       <style>{`
         @keyframes twinkle { from{opacity:0.03} to{opacity:0.45} }
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        
+        .hero-layout {
+          display: grid;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 60px;
+          align-items: center;
+          width: 100%;
+        }
+
+        .tagline-text {
+          font-family: var(--font-mono);
+          font-size: 13.5px;
+          color: var(--white-60);
+          min-height: 24px;
+          letter-spacing: 0.5px;
+        }
+
+        .cta-btn-primary {
+          padding: 13px 30px;
+          background: var(--mint);
+          color: #021c1a;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          border-radius: 30px;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 4px 15px rgba(0, 245, 212, 0.15);
+        }
+
+        .cta-btn-primary:hover {
+          background: #ffffff;
+          color: #021c1a;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-btn-secondary {
+          padding: 13px 30px;
+          background: transparent;
+          color: var(--white-90);
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          border-radius: 30px;
+          border: 1px solid rgba(252, 235, 201, 0.25);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cta-btn-secondary:hover {
+          border-color: var(--cream);
+          color: var(--cream);
+          background: rgba(252, 235, 201, 0.04);
+          transform: translateY(-2px);
+        }
+
+        @media (max-width: 992px) {
+          .hero-layout {
+            grid-template-columns: 1fr;
+            gap: 32px;
+            padding-top: 40px;
+          }
+          .hero-canvas-column {
+            order: -1;
+            display: flex;
+            justify-content: center;
+          }
+        }
       `}</style>
 
-      {/* Static stars */}
-      <div style={{position:"absolute",inset:0,overflow:"hidden",zIndex:0}}>
-        {Array.from({length:70}).map((_,i)=>(
-          <div key={i} style={{
-            position:"absolute",
-            width:Math.random()*1.5+0.4+"px", height:Math.random()*1.5+0.4+"px",
-            background: i%5===0?"#6DCFEF":"#ffffff",
-            borderRadius:"50%",
-            left:Math.random()*100+"%", top:Math.random()*100+"%",
-            opacity:Math.random()*0.3+0.03,
-            animation:`twinkle ${2+Math.random()*5}s ${Math.random()*5}s infinite alternate`,
-          }}/>
-        ))}
-      </div>
+      <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: 80, paddingBottom: 40 }}>
+        <div className="hero-layout">
+          
+          {/* LEFT COLUMN: MINIMAL PROFILE SUMMARY */}
+          <div>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--cream)", fontStyle: "italic", marginBottom: 20, opacity: 0.75, lineHeight: 1.5 }}>
+              "Let us step out into the night and pursue that flighty temptress, adventure." — Albus Dumbledore
+            </p>
 
-      <HeroCanvas />
-
-      {/* Gradient overlays */}
-      <div style={{position:"absolute",inset:0,zIndex:1,pointerEvents:"none",
-        background:"radial-gradient(ellipse 50% 60% at 30% 50%,rgba(1,1,8,0.0) 0%,rgba(1,1,8,0.85) 65%)"}}/>
-      <div style={{position:"absolute",bottom:0,left:0,right:0,height:200,zIndex:1,
-        background:"linear-gradient(to top,#010108,transparent)",pointerEvents:"none"}}/>
-
-      {/* TEXT — hard left, asymmetric */}
-      <div className="container" style={{position:"relative",zIndex:2,paddingTop:88}}>
-        <div style={{maxWidth:580}}>
-
-          <div style={{
-            fontFamily:"var(--font-mono)",fontSize:"12px",
-            color:"var(--ice)",letterSpacing:"3px",
-            textTransform:"uppercase",marginBottom:24,opacity:0.6,
-          }}>
-            // IIT Jodhpur &nbsp;·&nbsp; Electrical Engineering &nbsp;·&nbsp; '28
-          </div>
-
-          <h1 style={{
-            fontFamily:"var(--font-display)",fontWeight:700,
-            fontSize:"clamp(58px,8vw,92px)",
-            letterSpacing:"-3px",lineHeight:0.95,
-            marginBottom:24,
-          }}>
-            <span style={{color:"var(--white)"}}>Keshav</span><br/>
-            <span style={{color:"var(--ice)"}}>Swami</span>
-          </h1>
-
-          <div style={{
-            display:"flex",alignItems:"center",gap:16,
-            marginBottom:20,
-          }}>
-            <div style={{width:32,height:1,background:"var(--ice)",opacity:0.5}}/>
-            <span style={{
-              fontFamily:"var(--font-mono)",fontSize:"13px",
-              color:"var(--white-60)",letterSpacing:"1px",
+            <div style={{
+              fontFamily: "var(--font-mono)", 
+              fontSize: "11px",
+              color: "var(--mint)", 
+              letterSpacing: "4px",
+              textTransform: "uppercase", 
+              marginBottom: 16, 
+              opacity: 0.9,
             }}>
-              Software Engineer
-            </span>
+              IIT JODHPUR // ELECTRICAL ENGINEERING // '28
+            </div>
+
+            <h1 style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 700,
+              fontSize: "clamp(52px, 7.5vw, 80px)",
+              letterSpacing: "-2.5px",
+              lineHeight: 0.95,
+              marginBottom: 20,
+              color: "var(--white)"
+            }}>
+              Keshav<br/>
+              <span style={{
+                color: "var(--cream)",
+                textShadow: "0 0 20px rgba(252, 235, 201, 0.15)"
+              }}>Swami</span>
+            </h1>
+
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              marginBottom: 16,
+            }}>
+              <div style={{ width: 20, height: 1.2, background: "var(--mint)", opacity: 0.6 }}/>
+              <span style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "11px",
+                color: "var(--cream)",
+                letterSpacing: "1.5px",
+                textTransform: "uppercase",
+                fontWeight: 600
+              }}>
+                Hardware Security &amp; AI Systems
+              </span>
+            </div>
+
+            <div className="tagline-text" style={{ marginBottom: 36 }}>
+              {shown}
+              <span style={{
+                display: "inline-block",
+                width: 1.5,
+                height: 13,
+                background: "var(--mint)",
+                marginLeft: 3,
+                verticalAlign: "middle",
+                animation: "blink 1s infinite",
+              }}/>
+            </div>
+
+            {/* Elegant action buttons */}
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+              <a href="#projects">
+                <button className="cta-btn-primary">
+                  Explore Projects
+                </button>
+              </a>
+              <a href={personal.resumeUrl} target="_blank" rel="noreferrer">
+                <button className="cta-btn-secondary">
+                  View Resume
+                </button>
+              </a>
+            </div>
           </div>
 
-          <div style={{
-            fontFamily:"var(--font-mono)",fontSize:"15px",
-            color:"var(--white-30)",marginBottom:44,
-            minHeight:24,letterSpacing:"0.2px",
-          }}>
-            {shown}
-            <span style={{
-              display:"inline-block",width:2,height:15,
-              background:"var(--ice)",marginLeft:2,verticalAlign:"middle",
-              animation:"blink 1s infinite",
-            }}/>
-          </div>
-
-          {/* Buttons only — no social links here */}
-          <div style={{display:"flex",gap:14,flexWrap:"wrap"}}>
-            <a href="#projects">
-              <button style={{
-                padding:"14px 36px",
-                background:"var(--ice)",
-                color:"#010108",
-                fontSize:"14px",fontWeight:600,letterSpacing:"0.3px",
-                borderRadius:"var(--radius)",
-                transition:"all 0.25s",
-              }}
-              onMouseEnter={e=>{e.target.style.background="#a8e6f8";e.target.style.transform="translateY(-1px)";e.target.style.boxShadow="0 8px 28px rgba(109,207,239,0.3)";}}
-              onMouseLeave={e=>{e.target.style.background="var(--ice)";e.target.style.transform="none";e.target.style.boxShadow="none";}}>
-                View Projects
-              </button>
-            </a>
-            <a href={personal.resumeUrl} target="_blank" rel="noreferrer">
-              <button style={{
-                padding:"14px 36px",
-                background:"transparent",
-                color:"var(--white-90)",
-                fontSize:"14px",fontWeight:500,letterSpacing:"0.3px",
-                borderRadius:"var(--radius)",
-                border:"1px solid rgba(255,255,255,0.18)",
-                transition:"all 0.25s",
-              }}
-              onMouseEnter={e=>{e.target.style.borderColor="rgba(255,255,255,0.45)";e.target.style.background="rgba(255,255,255,0.05)";}}
-              onMouseLeave={e=>{e.target.style.borderColor="rgba(255,255,255,0.18)";e.target.style.background="transparent";}}>
-                Resume ↗
-              </button>
-            </a>
+          {/* RIGHT COLUMN: 3D WIREFRAME MESH */}
+          <div className="hero-canvas-column" style={{ width: "100%" }}>
+            <div style={{ maxWidth: "360px", width: "100%" }}>
+              <Grimoire3D />
+            </div>
           </div>
 
         </div>

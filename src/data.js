@@ -7,9 +7,10 @@ export const personal = {
   nameShort: "KS",
   title: "Software Engineer",
   taglines: [
+    "I solemnly swear that I am up to no good.",
     "Building intelligent systems from silicon to software",
     "Hardware security · AI pipelines · Full-stack dev",
-    "EE student · IIT Jodhpur · Class of 2028",
+    "Mischief Managed.",
   ],
   about: `I'm a third-year Electrical Engineering student at IIT Jodhpur who enjoys building software and figuring out how things work under the hood.
 
@@ -22,7 +23,7 @@ Outside of academics and coding, I mentor juniors, contribute to student communi
   github: "https://github.com/KeshavSwami04",
   linkedin: "https://www.linkedin.com/in/keshav-swami-42593b319/",
   phone: "+91 93529 02531",
-  resumeUrl: "https://drive.google.com/file/d/1HZc4aUIqACYUlB3Gb7SYYMcH4IzrIufZ/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/176ESTdVD8XcBfbLWAL9v5vmpBgs9-X0T/view?usp=sharing",
 };
 
 export const education = [
