@@ -12,30 +12,30 @@ const categoryDetails = [
     status: "OPTIMAL"
   },
   {
-    id: "SYS_FRAME_02",
-    focus: "Modern frontend UIs, RESTful backends, and AI retrieval architectures.",
-    useCase: "Semantic chunking via Sentence Transformers, REST API development in Flask, Android game compilation with RayMob.",
-    load: 88,
+    id: "SYS_WEB_DB_02",
+    focus: "Scalable backend routing, relational schema designs, memory caching, and event brokers.",
+    useCase: "Horizontally scalable URL shortener in FastAPI, cache-aside reads via Redis, async analytics queue with RabbitMQ, relational DB replicas.",
+    load: 94,
     status: "STABLE"
   },
   {
-    id: "SYS_DATA_03",
-    focus: "Relational database systems and high-dimensional vector stores.",
-    useCase: "Vector similarity search (ChromaDB), normalized multi-table schema design (MySQL & PostgreSQL).",
-    load: 80,
+    id: "SYS_AI_DATA_03",
+    focus: "Retrieval augmented generation (RAG), vector similarity pipelines, and automated text/code parsing.",
+    useCase: "3-stage retrieval pipeline (AST chunking, ChromaDB vector search, CrossEncoder reranking), call graph analysis, LLaMA 3.3 integration.",
+    load: 88,
     status: "SYNCHRONIZED"
   },
   {
-    id: "SYS_TOOL_04",
-    focus: "CI/CD automation, virtualization, and cloud production environments.",
-    useCase: "Automated RTL security workflow loops in n8n, containerized development (Docker), Vercel & Render hosting.",
-    load: 85,
+    id: "SYS_CLD_OPS_04",
+    focus: "Cloud hosting, container virtualization, reverse proxy routing, and automation workflows.",
+    useCase: "AWS EC2 instances with Nginx round-robin, automated RTL security n8n workflow loops, Prometheus monitoring, Docker containerization.",
+    load: 86,
     status: "ONLINE"
   },
   {
     id: "SYS_CONC_05",
     focus: "Advanced systems design, hardware security, and AI retrieval theory.",
-    useCase: "3-stage RAG retrieval pipeline (Drishti), TMR auto-hardening logical voters, widest-path power grid routing.",
+    useCase: "FastAPI rate-limiting via Redis sliding-window Lua scripts, PostgreSQL primary-replica replication, JWT token auth, RBAC enforcement.",
     load: 95,
     status: "ACTIVE"
   }

@@ -35,7 +35,7 @@ export const education = [
     highlights: [
       "JEE Advanced 2024: AIR 5572 (General Category)",
       "CBSE Class XII: 95.6%",
-      "DSA · ML · Digital Design · Signals & Systems · Linear Algebra",
+      "Data Structures & Algorithms · Machine Learning · Digital Design · Signals & Systems · Probability & Statistics · Linear Algebra",
     ],
   },
 ];
@@ -53,26 +53,54 @@ export const skills = [
     items: ["C", "C++", "Python", "JavaScript", "TypeScript", "SQL", "Verilog"],
   },
   {
-    category: "Frameworks & Libraries",
-    items: ["React", "Flask", "Streamlit", "Tailwind CSS", "NetworkX", "Sentence Transformers", "Raylib"],
+    category: "Web, Backend & Databases",
+    items: ["FastAPI", "Flask", "React", "PostgreSQL", "MySQL", "Redis", "ChromaDB", "RabbitMQ", "MongoDB"],
   },
   {
-    category: "Databases",
-    items: ["MySQL", "PostgreSQL", "ChromaDB"],
+    category: "AI/ML & Data",
+    items: ["Machine Learning", "RAG", "Sentence Transformers", "LLM Fine-tuning", "AST Analysis"],
   },
   {
-    category: "Tools & Platforms",
-    items: ["Git", "Docker", "Linux", "n8n", "Vercel", "Render", "Postman", "Gunicorn"],
+    category: "DevOps & Cloud",
+    items: ["Docker", "Git", "Linux", "AWS EC2", "Nginx", "Prometheus", "Grafana", "n8n", "Postman"],
   },
   {
     category: "Concepts",
-    items: ["RAG", "Machine Learning", "Graph Algorithms", "REST APIs", "Database Design", "Auth & Authorization", "Semantic Search", "Hardware Security"],
+    items: ["System Design", "Distributed Systems", "Caching", "Message Queues", "DB Replication", "REST APIs", "JWT", "RBAC"],
   },
 ];
 
 export const projects = [
   {
     id: "01",
+    name: "CacheFlow",
+    subtitle: "Scalable URL Shortener & Link Infrastructure",
+    stack: ["FastAPI", "PostgreSQL", "Redis", "RabbitMQ", "Docker", "AWS EC2"],
+    description: "A production-grade, horizontally scalable URL shortener and link infrastructure. Implements cache-aside reads, rate limiting, event-driven analytics, asynchronous workers with error handling, and database streaming replication.",
+    highlights: [
+      "Stateless FastAPI instances load-balanced via Nginx round-robin, delivering sub-millisecond latency (p99 < 1.5ms) using Redis cache-aside",
+      "Collision-free 7-character short codes via PostgreSQL sequence with a custom bijective 64-bit Feistel cipher for ID obfuscation",
+      "Asynchronous analytics pipeline publishing to RabbitMQ with competing python consumers, exponential backoff, and a Dead Letter Queue (DLQ)"
+    ],
+    github: "https://github.com/KeshavSwami04/CacheFlow",
+    demo: "http://13.49.57.61.nip.io:3000",
+  },
+  {
+    id: "02",
+    name: "FixPoint",
+    subtitle: "Workflow-Based Maintenance Management Platform",
+    stack: ["React", "Flask", "MySQL", "JWT", "Docker"],
+    description: "Full-stack grievance management platform built solo. React/Vite/Tailwind frontend, Flask REST API, and an 8-table MySQL schema handling complaints, escalations, bookings, notifications, and audit logs. Features a 6-state complaint lifecycle with student-driven resolution verification.",
+    highlights: [
+      "6-state complaint lifecycle with auto-escalation",
+      "Background service that auto-flags stale complaints",
+      "Full production deployment: Vercel + Render + Clever Cloud",
+    ],
+    github: "https://github.com/KeshavSwami04/FixPoint",
+    demo: "https://fixpoint-roan.vercel.app",
+  },
+  {
+    id: "03",
     name: "Drishti",
     subtitle: "Repository Code Understanding System",
     stack: ["Python", "ChromaDB", "Streamlit", "RAG", "NetworkX"],
@@ -86,21 +114,7 @@ export const projects = [
     demo: "https://askdrishti.streamlit.app",
   },
   {
-    id: "02",
-    name: "FixPoint",
-    subtitle: "Workflow-Based Maintenance Management Platform",
-    stack: ["React", "Flask", "MySQL", "JWT", "Docker"],
-    description: "Full-stack complaint management platform built solo. React/Vite/Tailwind frontend, Flask REST API, and an 8-table MySQL schema handling complaints, escalations, bookings, notifications, and audit logs. Features a 6-state complaint lifecycle with student-driven resolution verification.",
-    highlights: [
-      "6-state complaint lifecycle with auto-escalation",
-      "Background service that auto-flags stale complaints",
-      "Full production deployment: Vercel + Render + Clever Cloud",
-    ],
-    github: "https://github.com/KeshavSwami04/FixPoint",
-    demo: "https://fixpoint-roan.vercel.app",
-  },
-  {
-    id: "03",
+    id: "04",
     name: "Treasure Hunt — IITJ Edition",
     subtitle: "Campus-Based 2D Adventure Game",
     stack: ["C", "C++", "Raylib", "RayMob"],
@@ -115,7 +129,7 @@ export const projects = [
     demo: null,
   },
   {
-    id: "04",
+    id: "05",
     name: "Power Distribution Simulator",
     subtitle: "Interactive Grid Simulation",
     stack: ["C++", "Raylib", "Graph Algorithms"],
@@ -129,7 +143,7 @@ export const projects = [
     demo: null,
   },
   {
-    id: "05",
+    id: "06",
     name: "Chess (C + GTK3)",
     subtitle: "Desktop Chess Engine",
     stack: ["C", "GTK3"],
@@ -141,17 +155,6 @@ export const projects = [
     github: "https://github.com/KeshavSwami04/chess-c-gtk3",
     demo: null,
   },
-  // ── ADD MORE PROJECTS BELOW ──
-  // {
-  //   id: "06",
-  //   name: "Your Next Project",
-  //   subtitle: "Short tagline",
-  //   stack: ["React", "Node.js"],
-  //   description: "Description here.",
-  //   highlights: ["Key feature 1", "Key feature 2"],
-  //   github: "https://github.com/...",
-  //   demo: null,
-  // },
 ];
 
 export const research = [
@@ -160,7 +163,7 @@ export const research = [
     period: "Jan 2026 – Apr 2026",
     supervisor: "Prof. Arpit Khandelwal",
     institution: "IIT Jodhpur",
-    description: "Engineered a fully automated hardware security pipeline in n8n that injects single-bit faults into Verilog RTL modules, runs up to 4 trials per campaign, and classifies each outcome as Critical, High, or Masked. Integrated Gemini 2.5 Flash to auto-generate fault-injection testbenches, produce TMR-hardened RTL with majority-voter logic and illegal-state recovery. Automated end-to-end security disclosure report generation eliminating all manual reporting effort.",
+    description: "Engineered a 28-node n8n hardware security pipeline performing automated single-bit fault injection into any Verilog RTL module, running 4 trials per campaign and classifying outcomes as Critical, High, or Masked. Integrated 4 Gemini 2.5 Flash nodes to auto-generate testbenches and produce TMR-hardened RTL with majority-voter logic, watchdog logic, and alignment enforcement (retrying up to 4 times on validation failure). Auto-generates executive-level security disclosure reports, completing the entire end-to-end flow in 2–5 minutes with zero manual intervention.",
     tags: ["n8n", "Verilog", "Gemini 2.5", "Hardware Security", "TMR"],
     github: "https://github.com/KeshavSwami04/Fault-Injection-Security-Framework",
   },
@@ -171,7 +174,7 @@ export const experience = [
     role: "Student Guide",
     org: "IIT Jodhpur",
     period: "Jul 2025 – May 2026",
-    description: "Selected among 50 Student Guides from 360+ applicants. Mentored 14 incoming students through academic and campus transition. Guided 50+ freshmen across academics, onboarding, and student life.",
+    description: "Selected among 50 Student Guides from 360+ applicants. Mentored 14 incoming students and supported 50+ freshmen through academic onboarding and campus life.",
   },
   {
     role: "Assistant Head, Public Relations",
@@ -183,6 +186,6 @@ export const experience = [
     role: "Assistant Head, Logistics",
     org: "TEDx IIT Jodhpur",
     period: "Feb 2026 – Mar 2026",
-    description: "Coordinated end-to-end logistics and operations for TEDx IIT Jodhpur with 12 invited speakers. Managed speaker coordination and ensured on-schedule execution across all sessions.",
+    description: "Coordinated end-to-end logistics for TEDx IIT Jodhpur with 12 invited speakers. Managed speaker coordination and ensured on-schedule execution across all sessions.",
   },
 ];
