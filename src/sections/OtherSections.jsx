@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { research, experience, education, personal } from "../data";
 import TiltCard from "../components/TiltCard";
 import GrappleSection from "../components/GrappleSection";
@@ -264,12 +265,23 @@ export function Experience() {
 }
 
 export function Contact() {
+  const [copiedField, setCopiedField] = useState(null);
+
   const links = [
-    { label: "Email",    value: personal.email,  href: `https://mail.google.com/mail/?view=cm&to=${personal.email}` },
+    { label: "Email",    value: personal.email,  href: `https://mail.google.com/mail/?view=cm&to=${personal.email}`, copyable: true, copyValue: personal.email },
     { label: "GitHub",   value: "github.com/KeshavSwami04", href: personal.github },
     { label: "LinkedIn", value: "linkedin.com/in/keshav-swami",  href: personal.linkedin },
-    { label: "Phone",    value: personal.phone,  href: `tel:${personal.phone.replace(/\s/g,"")}` },
+    { label: "Phone",    value: personal.phone,  href: `tel:${personal.phone.replace(/\s/g,"")}`, copyable: true, copyValue: personal.phone },
   ];
+
+  const handleCopy = (e, label, copyValue) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(copyValue).then(() => {
+      setCopiedField(label);
+      setTimeout(() => setCopiedField(null), 1500);
+    });
+  };
   
   return (
     <GrappleSection id="contact">
@@ -309,19 +321,70 @@ export function Contact() {
                 
                 <div 
                   style={{
-                    fontSize: "12px", 
-                    color: "var(--white-90)", 
-                    fontWeight: 500,
-                    whiteSpace: "nowrap", 
-                    overflow: "hidden", 
-                    textOverflow: "ellipsis",
-                    transition: "color 0.25s",
-                    fontFamily: "var(--font-mono)"
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
                   }}
-                  onMouseEnter={e => e.target.style.color = "var(--mint)"}
-                  onMouseLeave={e => e.target.style.color = "var(--white-90)"}
                 >
-                  {l.value}
+                  <div 
+                    style={{
+                      fontSize: "12px", 
+                      color: "var(--white-90)", 
+                      fontWeight: 500,
+                      whiteSpace: "nowrap", 
+                      overflow: "hidden", 
+                      textOverflow: "ellipsis",
+                      transition: "color 0.25s",
+                      fontFamily: "var(--font-mono)",
+                      flex: 1,
+                      minWidth: 0,
+                    }}
+                    onMouseEnter={e => e.target.style.color = "var(--mint)"}
+                    onMouseLeave={e => e.target.style.color = "var(--white-90)"}
+                  >
+                    {l.value}
+                  </div>
+
+                  {l.copyable && (
+                    <button
+                      onClick={(e) => handleCopy(e, l.label, l.copyValue)}
+                      title={copiedField === l.label ? "Copied!" : `Copy ${l.label}`}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: "4px",
+                        borderRadius: "4px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        transition: "background 0.2s, transform 0.2s",
+                        flexShrink: 0,
+                        position: "relative",
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.background = "rgba(100, 255, 218, 0.1)";
+                        e.currentTarget.style.transform = "scale(1.15)";
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.background = "none";
+                        e.currentTarget.style.transform = "scale(1)";
+                      }}
+                    >
+                      {copiedField === l.label ? (
+                        /* Checkmark icon when copied */
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        /* Clipboard copy icon */
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--white-60)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                      )}
+                    </button>
+                  )}
                 </div>
               </TiltCard>
             </a>
