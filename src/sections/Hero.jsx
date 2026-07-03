@@ -158,7 +158,7 @@ export default function Hero() {
                 textTransform: "uppercase",
                 fontWeight: 600
               }}>
-                Hardware Security &amp; AI Systems
+                Software Engineering &amp; Scalable Systems
               </span>
             </div>
 

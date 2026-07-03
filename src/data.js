@@ -8,8 +8,8 @@ export const personal = {
   title: "Software Engineer",
   taglines: [
     "I solemnly swear that I am up to no good.",
-    "Building intelligent systems from silicon to software",
-    "Hardware security · AI pipelines · Full-stack dev",
+    "Building scalable systems and elegant software",
+    "Systems design · Full-stack dev · Problem solving",
     "Mischief Managed.",
   ],
   about: `I'm a third-year Electrical Engineering student at IIT Jodhpur who enjoys building software and figuring out how things work under the hood.
