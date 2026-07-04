@@ -7,35 +7,35 @@ const categoryDetails = [
   {
     id: "SYS_LANG_01",
     focus: "Low-level system logic, scripting automation, and hardware description.",
-    useCase: "AST parsing & call graph construction in Drishti, Python scripts for security, Raylib 2D game loops in C/C++.",
+    useCase: "AST parsing & call graph construction in Drishti, Python scripts for security, Raylib 2D simulation in C/C++.",
     load: 92,
     status: "OPTIMAL"
   },
   {
-    id: "SYS_WEB_DB_02",
-    focus: "Scalable backend routing, relational schema designs, memory caching, and event brokers.",
-    useCase: "Horizontally scalable URL shortener in FastAPI, cache-aside reads via Redis, async analytics queue with RabbitMQ, relational DB replicas.",
+    id: "SYS_FW_LIB_02",
+    focus: "Frontend user interfaces, lightweight frameworks, and backend API routing libraries.",
+    useCase: "React/Tailwind UI for FixPoint, FastAPI backend APIs for CacheFlow, Streamlit dashboards for Drishti, and Sentence Transformers.",
     load: 94,
     status: "STABLE"
   },
   {
-    id: "SYS_AI_DATA_03",
-    focus: "Retrieval augmented generation (RAG), vector similarity pipelines, and automated text/code parsing.",
-    useCase: "3-stage retrieval pipeline (AST chunking, ChromaDB vector search, CrossEncoder reranking), call graph analysis, LLaMA 3.3 integration.",
+    id: "SYS_DB_03",
+    focus: "Relational database design, memory caching, and vector similarity indexes.",
+    useCase: "PostgreSQL primary-replica replication, Redis cache-aside reads & rate-limiting scripts, MySQL schemas, and ChromaDB vector search.",
     load: 88,
     status: "SYNCHRONIZED"
   },
   {
-    id: "SYS_CLD_OPS_04",
-    focus: "Cloud hosting, container virtualization, reverse proxy routing, and automation workflows.",
-    useCase: "AWS EC2 instances with Nginx round-robin, automated RTL security n8n workflow loops, Prometheus monitoring, Docker containerization.",
+    id: "SYS_DEV_TOOLS_04",
+    focus: "Containerization, cloud VM hosting, task orchestration, and pipeline automation.",
+    useCase: "Docker containers, AWS EC2 hosting, n8n automated RTL security workflows, Postman API testing, and Prometheus/Grafana monitoring.",
     load: 86,
     status: "ONLINE"
   },
   {
     id: "SYS_CONC_05",
-    focus: "Advanced systems design, hardware security, and AI retrieval theory.",
-    useCase: "FastAPI rate-limiting via Redis sliding-window Lua scripts, PostgreSQL primary-replica replication, JWT token auth, RBAC enforcement.",
+    focus: "Distributed systems, operating systems, networking, role access controls, and retrieval theory.",
+    useCase: "Feistel cipher ID obfuscation, message broker queues, primary-replica replication, JWT token authorization, and RBAC policies.",
     load: 95,
     status: "ACTIVE"
   }
