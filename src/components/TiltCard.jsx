@@ -85,6 +85,8 @@ export default function TiltCard({ children, style = {}, className = "", intensi
         overflow: "hidden",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
         transition: "border-color 0.3s, box-shadow 0.3s",
+        display: "flex",
+        flexDirection: "column",
         ...style,
       }}
       onMouseMove={onMove}
@@ -107,7 +109,7 @@ export default function TiltCard({ children, style = {}, className = "", intensi
       />
       
       {/* Content wrapper with isolation to prevent being covered by glare */}
-      <div style={{ position: "relative", zIndex: 2, height: "100%", width: "100%" }}>
+      <div style={{ position: "relative", zIndex: 2, flex: 1, display: "flex", flexDirection: "column", width: "100%" }}>
         {children}
       </div>
     </div>

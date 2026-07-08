@@ -23,7 +23,7 @@ export default function Projects() {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
+            flex: 1;
             padding: 28px 24px;
           }
           .project-title {
@@ -103,8 +103,13 @@ export default function Projects() {
 
         <div className="projects-grid">
           {projects.map((proj) => (
-            <div key={proj.id}>
-              <TiltCard intensity={4} className="glass-card project-card">
+            <TiltCard 
+              key={proj.id} 
+              intensity={4} 
+              className="glass-card"
+              style={{ height: "100%" }}
+            >
+              <div className="project-card">
                 <div>
                   {/* Header */}
                   <div className="project-title">{proj.name}</div>
@@ -154,8 +159,8 @@ export default function Projects() {
                     </a>
                   )}
                 </div>
-              </TiltCard>
-            </div>
+              </div>
+            </TiltCard>
           ))}
         </div>
       </div>
