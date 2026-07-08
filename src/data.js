@@ -41,7 +41,7 @@ export const education = [
 ];
 
 export const stats = [
-  { value: "6+",    label: "Projects Shipped" },
+  { value: "7+",    label: "Projects Shipped" },
   { value: "7.57",  label: "CGPA / 10" },
   { value: "AIR 5572", label: "JEE Advanced" },
   { value: "95.6%", label: "Class XII" },
@@ -54,11 +54,11 @@ export const skills = [
   },
   {
     category: "Frameworks & Libraries",
-    items: ["React", "FastAPI", "Flask", "Streamlit", "Tailwind CSS", "NetworkX", "Sentence Transformers"],
+    items: ["React", "Next.js", "FastAPI", "Flask", "Streamlit", "Tailwind CSS", "NetworkX", "Sentence Transformers"],
   },
   {
     category: "Databases",
-    items: ["PostgreSQL", "MySQL", "Redis", "ChromaDB"],
+    items: ["PostgreSQL", "MySQL", "Redis", "ChromaDB", "Supabase"],
   },
   {
     category: "Developer Tools",
@@ -73,6 +73,22 @@ export const skills = [
 export const projects = [
   {
     id: "01",
+    name: "Interview OS",
+    subtitle: "AI Technical Mock Interview Platform",
+    stack: ["Next.js", "Supabase", "OpenRouter API", "Edge Runtime", "Monaco Editor", "Tailwind CSS"],
+    description: "An interactive, low-latency mock interview platform that dynamically generates customized coding and system design sessions in a Monaco editor workspace using candidate profiles, resumes, and target roles.",
+    highlights: [
+      "Architected a low-latency mock interview platform utilizing candidate resumes and target roles to dynamically generate customized coding and design sessions",
+      "Built a custom Edge runtime stream reader decoupling LLM response streaming from Supabase DB logs to eliminate UI lockups and close connections immediately",
+      "Developed four specialized mock tracks (Live PR Critique, CS Fundamentals, DSA Sandbox, Resume Grill) aligned to target roles (SDE, Frontend, Backend, Data)",
+      "Engineered an automatic session retention limit to purge oldest interviews and cascading transcript messages when exceeding 5 sessions",
+      "Implemented calibrated scorecard evaluations using pre-computed participation metrics (word count, code submissions) against rubrics to prevent score inflation",
+    ],
+    github: "https://github.com/KeshavSwami04/Interview-OS",
+    demo: "https://interview-os-brown.vercel.app",
+  },
+  {
+    id: "02",
     name: "CacheFlow",
     subtitle: "Scalable URL Shortener & Link Infrastructure",
     stack: ["FastAPI", "PostgreSQL", "Redis", "RabbitMQ", "Docker", "AWS EC2"],
@@ -88,7 +104,7 @@ export const projects = [
     demo: "http://13.49.57.61.nip.io:3000",
   },
   {
-    id: "02",
+    id: "03",
     name: "FixPoint",
     subtitle: "Workflow-Based Maintenance Management Platform",
     stack: ["React", "Flask", "MySQL", "JWT", "Docker"],
@@ -102,7 +118,7 @@ export const projects = [
     demo: "https://fixpoint-roan.vercel.app",
   },
   {
-    id: "03",
+    id: "04",
     name: "Drishti",
     subtitle: "Repository Code Understanding System",
     stack: ["Python", "ChromaDB", "LLaMA 3.3 70B", "RAG", "Streamlit"],
@@ -116,7 +132,7 @@ export const projects = [
     demo: "https://askdrishti.streamlit.app",
   },
   {
-    id: "04",
+    id: "05",
     name: "Power Distribution Simulator",
     subtitle: "Interactive Grid Simulation",
     stack: ["C++", "Raylib", "Graph Algorithms"],
@@ -130,7 +146,7 @@ export const projects = [
     demo: null,
   },
   {
-    id: "05",
+    id: "06",
     name: "Treasure Hunt — IITJ Edition",
     subtitle: "Campus-Based 2D Adventure Game",
     stack: ["C", "C++", "Raylib", "RayMob"],
@@ -144,7 +160,7 @@ export const projects = [
     demo: null,
   },
   {
-    id: "06",
+    id: "07",
     name: "Chess (C + GTK3)",
     subtitle: "Desktop Chess Engine",
     stack: ["C", "GTK3"],

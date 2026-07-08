@@ -4,7 +4,7 @@ import CountUp from "../components/CountUp";
 import GrappleSection from "../components/GrappleSection";
 
 const statMeta = [
-  { target: "6",    suffix: "+",  label: "Projects Shipped" },
+  { target: "7",    suffix: "+",  label: "Projects Shipped" },
   { target: "7.57", suffix: "",   label: "CGPA / 10" },
   { target: "5572", suffix: "",   label: "JEE Adv. AIR" },
   { target: "95.6", suffix: "%",  label: "Class XII" },
